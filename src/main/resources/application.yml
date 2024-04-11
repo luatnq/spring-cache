@@ -1,0 +1,33 @@
+spring:
+  data:
+    redis:
+      host: 192.168.143.58
+      port: 6379
+  datasource:
+    url: jdbc:postgresql://192.168.143.58:5432/database
+    username: dbuser
+    password: admin2023
+    hikari:
+      maximum-pool-size: 20
+      max-lifetime: 1800000
+      idle-timeout: 600000
+      connection-timeout: 30000
+      minimum-idle: 5
+      driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+  cache:
+    type: redis
+
+application:
+  cache:
+    item:
+      write-back:
+        key: ${CACHE_WRITE_BACK_ITEM_KEY:cache_write_back_item}
+        rate: ${CACHE_WRITE_BACK_ITEM_RATE:30000}
+
