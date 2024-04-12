@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  demo-cache:
+    build: .
+    container_name: demo-cache
+    restart: always
+    ports:
+      - "8089:8080"
+volumes:
+  demo-cache-data:
+    driver: local
