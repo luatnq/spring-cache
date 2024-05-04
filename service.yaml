@@ -7,7 +7,7 @@ spec:
     app: demo-backend
   ports:
     - protocol: TCP
-      port: 8081
-      targetPort: 8080
+      port: 8089
+      targetPort: 8081
+      nodePort: 30123
   type: LoadBalancer
-  externalTrafficPolicy: Local

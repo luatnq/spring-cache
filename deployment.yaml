@@ -4,8 +4,8 @@ metadata:
   name: demo-backend
 spec:
   selector:
-      matchLabels:
-        app: demo-backend
+    matchLabels:
+      app: demo-backend
   replicas: 3
   template:
     metadata:
@@ -14,7 +14,14 @@ spec:
     spec:
       containers:
         - name: demo-backend
-          image: luatnq/spring-cache_demo-cache:latest
+          image: luatnq/backend-demo-service:46f4744
           imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: demo-backend-cm
+            - secretRef:
+                name: demo-backend-sc
           ports:
-            - containerPort: 8080
+            - containerPort: 8081
+              name: http
+      restartPolicy: Always

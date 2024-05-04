@@ -1,5 +1,6 @@
 package org.oplearn.example.repository;
 
+import org.hibernate.annotations.OptimisticLock;
 import org.oplearn.example.entity.Item;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
